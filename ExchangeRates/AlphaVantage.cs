@@ -27,11 +27,11 @@ namespace ExchangeRates
 			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
 			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
-			StreamReader sr = new StreamReader(resp.GetResponseStream());
+			StreamReader Stream = new StreamReader(resp.GetResponseStream());
 
-			string results = sr.ReadToEnd();
+			string results = Stream.ReadToEnd();
 
-			sr.Close();
+			Stream.Close();
 			resp.Close();
 
 			return results;
