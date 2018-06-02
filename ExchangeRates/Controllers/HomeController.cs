@@ -28,6 +28,10 @@ namespace ExchangeRates.Controllers
             return View();
         }
 
+		private readonly DateTime defaultDate1 = new DateTime(2016, 01, 01);
+		private readonly DateTime defaultDate2 = new DateTime(2017, 12, 31);
+		private readonly List<BarContainer> Bars = new List<BarContainer>();
+
 		[HttpPost]
 		public JsonResult Data(string symbol, string market, string date1, string date2)
 		{
@@ -35,7 +39,11 @@ namespace ExchangeRates.Controllers
 			DateTime d1 = Convert.ToDateTime(date1);
 			DateTime d2 = Convert.ToDateTime(date2);
 
-			List<BarContainer> Bars = new List<BarContainer>();
+			if (DateTime.Compare(d1, d2) > 0)
+			{
+				d1 = defaultDate1;
+				d2 = defaultDate2;
+			}
 
 			string[] rows = AplhaVantage.RequestCryptocurrencyHistoricalData(symbol, market);
 

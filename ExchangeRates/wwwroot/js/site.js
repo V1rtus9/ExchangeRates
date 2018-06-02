@@ -1,24 +1,51 @@
-﻿// Write your JavaScript code.
-$(document).ready(function () {
+﻿
+var formValues = {
+    symbol: "BTC",
+    market: "USD",
+    date1: "01/01/2016",
+    date2: "31/12/2017"
+}
 
-    var crypto = "BTC";
-    var fiat = "USD";
+$(document).ready(function () {
 
     $('#list-tab-crypto a').on('click', function (e) {
         e.preventDefault();
         $(this).tab('show');
-        crypto = $(this).text();
+        formValues.symbol = $(this).text();
     });
 
     $('#list-tab-fiat a').on('click', function (e) {
         e.preventDefault();
         $(this).tab('show');
-        fiat = $(this).text();
+        formValues.market = $(this).text();
     });
 
     $('.datepicker').datepicker({
         autoclose: true
     });
+
+    $('#date1').datepicker()
+        .on("changeDate", function (e) {
+            formValues.date1 = $('#date1').val();
+        });
+
+    $('#date2').datepicker()
+        .on("changeDate", function (e) {
+            formValues.date2 = $('#date2').val();
+        });
+
+    $(document).on('mouseleave', leaveFromTop);
+
+    function leaveFromTop(e) {
+        if (e.clientY < 0) {
+
+        }          
+    }
+
+    function isDate(dateVal) {
+        var d = new Date(dateVal);
+        return d.toString() === 'Invalid Date' ? false : true;
+    }
 
 
     $("#display").click(function () {
@@ -30,10 +57,10 @@ $(document).ready(function () {
             url: '/Home/Data',
             type: 'POST',
             data: {
-                symbol: crypto,
-                market: fiat,
-                date1: $('#StartDate').val(),
-                date2: $('#EndDate').val()
+                symbol: formValues.symbol,
+                market: formValues.market,
+                date1: formValues.date1,
+                date2: formValues.date2
             },
             dataType: 'json',
             success: function (response) {
@@ -57,7 +84,7 @@ $(document).ready(function () {
                 $('#tblData').html(html);
             },
             error: function (err) {
-                alert(err.statusText);
+                alert("Error happened: " + err.statusText);
             }
         })
         //
