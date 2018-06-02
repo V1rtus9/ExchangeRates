@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Exchange Rates";
+}
+
+<br />
+<div class="jumbotron">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="list-group" id="list-tab-crypto" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">BTC</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">ETH</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">LTC</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">XRP</a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="list-group" id="list-tab-fiat" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">USD</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">EUR</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">GBP</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">JPY</a>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+
+            <input type="text" id="StartDate" value="01/01/2016" style="max-width:100%" class="form-control datepicker" placeholder="Start Date" data-date-format="dd/mm/yyyy">
+
+        </div>
+        <div class="col-md-6">
+
+            <input type="text" id="EndDate" value="31/12/2017" style="max-width:100%" class="form-control datepicker" placeholder="End Date" data-date-format="dd/mm/yyyy">
+
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="display">Display</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <i id="spinner" class="fa fa-spinner fa-spin" style="font-size:24px; margin:auto; display:none;"></i>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Open</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Close</th>
+                    <th scope="col">Volume</th>
+                </tr>
+            </thead>
+            <tbody id="tblData"></tbody>
+        </table>
+
+        <div id="pagination" class="pagination">
+        </div>
+
+        <script id="data-template" type="x-tmpl-mustache">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">{{Date}}</th>
+                <th scope="col">{{Open}}</th>
+                <th scope="col">{{High}}</th>
+                <th scope="col">{{Low}}</th>
+                <th scope="col">{{Close}}</th>
+                <th scope="col">{{Volume}}</th>
+            </tr>
+        </script>
+
+    </div>
+</div>
