@@ -9,6 +9,6 @@ namespace ExchangeRates.Models
     {
 		public static readonly DateTime defaultDate1 = new DateTime(2016, 01, 01);
 		public static readonly DateTime defaultDate2 = new DateTime(2017, 12, 31);
-		public static readonly List<BarContainer> Bars = new List<BarContainer>();
+		public static readonly List<BarModel> Bars = new List<BarModel>();
 	}
 }

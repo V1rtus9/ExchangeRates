@@ -1,7 +1,7 @@
 ﻿
 namespace ExchangeRates
 {
-	public struct BarContainer
+	public struct BarModel
 	{
 		public string date;
 		public double open;
