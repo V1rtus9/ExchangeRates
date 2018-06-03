@@ -7,8 +7,8 @@ namespace ExchangeRates.Models
 {
     public class DataModel
     {
-		public static readonly DateTime defaultDate1 = new DateTime(2016, 01, 01);
-		public static readonly DateTime defaultDate2 = new DateTime(2017, 12, 31);
-		public static readonly List<BarModel> Bars = new List<BarModel>();
+		public static  DateTime DefaultDate1 { get; } = new DateTime(2016, 01, 01);
+		public static  DateTime DefaultDate2 { get; } = new DateTime(2017, 12, 31);
+		public static  List<BarModel> Bars { get; set; } = new List<BarModel>();
 	}
 }

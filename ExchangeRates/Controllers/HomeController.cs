@@ -33,11 +33,11 @@ namespace ExchangeRates.Controllers
 		public JsonResult Data(string symbol, string market, string date1, string date2)
 		{
 
-			DateTime d1 = StringToDateTime(date1, DataModel.defaultDate1);
-			DateTime d2 = StringToDateTime(date2, DataModel.defaultDate2);
+			DateTime d1 = StringToDateTime(date1, DataModel.DefaultDate1);
+			DateTime d2 = StringToDateTime(date2, DataModel.DefaultDate2);
 
 			if (DateTime.Compare(d1, d2) > 0)
-					d1 = DataModel.defaultDate1;
+					d1 = DataModel.DefaultDate1;
 
 			string[] rows = AplhaVantage.RequestCryptocurrencyHistoricalData(symbol, market);
 
