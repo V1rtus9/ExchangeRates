@@ -54,7 +54,7 @@ namespace ExchangeRates.Controllers
 				if (IsOutOfDateRange(barDateTmp, d1, d2))
 					continue;
 
-				DataModel.Bars.Add(new BarContainer(barDateTmp.ToString("dd/MM/yyyy"), Math.Round(Convert.ToDouble(barData[1]), 2),
+				DataModel.Bars.Add(new BarModel(barDateTmp.ToString("dd/MM/yyyy"), Math.Round(Convert.ToDouble(barData[1]), 2),
 										Math.Round(Convert.ToDouble(barData[2]), 2), Math.Round(Convert.ToDouble(barData[3]), 2),
 										Math.Round(Convert.ToDouble(barData[4]), 2), Math.Round(Convert.ToDouble(barData[9]), 0),
 										Math.Round(Convert.ToDouble(barData[10]), 0)));
