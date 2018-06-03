@@ -21,7 +21,9 @@ $(document).ready(function () {
     });
 
     $('.datepicker').datepicker({
-        autoclose: true
+        autoclose: true,
+        startDate: formValues.date1,
+        endDate: formValues.date2
     });
 
     $('#date1').datepicker()
@@ -41,12 +43,6 @@ $(document).ready(function () {
 
         }          
     }
-
-    function isDate(dateVal) {
-        var d = new Date(dateVal);
-        return d.toString() === 'Invalid Date' ? false : true;
-    }
-
 
     $("#display").click(function () {
 

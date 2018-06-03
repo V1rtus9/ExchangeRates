@@ -36,14 +36,11 @@ namespace ExchangeRates.Controllers
 		public JsonResult Data(string symbol, string market, string date1, string date2)
 		{
 
-			DateTime d1 = Convert.ToDateTime(date1);
-			DateTime d2 = Convert.ToDateTime(date2);
+			DateTime d1 = StringToDateTime(date1, defaultDate1);
+			DateTime d2 = StringToDateTime(date2, defaultDate2);
 
 			if (DateTime.Compare(d1, d2) > 0)
-			{
-				d1 = defaultDate1;
-				d2 = defaultDate2;
-			}
+					d1 = defaultDate1;
 
 			string[] rows = AplhaVantage.RequestCryptocurrencyHistoricalData(symbol, market);
 
@@ -81,6 +78,19 @@ namespace ExchangeRates.Controllers
 				return true;
 
 			return false;
+		}
+
+		private DateTime StringToDateTime(string date, DateTime defDate)
+		{
+			try
+			{
+				return Convert.ToDateTime(date);
+			}
+			catch (Exception)
+			{
+
+				return defDate;
+			}
 		}
 
 		public IActionResult Error()
