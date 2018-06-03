@@ -86,7 +86,7 @@ namespace ExchangeRates.Controllers
 			{
 				return Convert.ToDateTime(date);
 			}
-			catch (Exception)
+			catch (FormatException)
 			{
 
 				return defDate;
