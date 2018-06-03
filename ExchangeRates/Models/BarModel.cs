@@ -11,7 +11,7 @@ namespace ExchangeRates
 		public double volume;
 		public double capitalization;
 
-		public BarContainer(string date, double open, double high, double low, double close, double volume, double cap)
+		public BarModel(string date, double open, double high, double low, double close, double volume, double cap)
 		{
 			this.date = date;
 			this.open = open;
