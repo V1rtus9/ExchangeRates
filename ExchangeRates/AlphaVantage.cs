@@ -27,7 +27,7 @@ namespace ExchangeRates
 			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
 			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
-			string result = "";
+			string result;
 			using (StreamReader Stream = new StreamReader(resp.GetResponseStream()))
 			{
 				result = Stream.ReadToEnd();
