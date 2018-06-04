@@ -27,14 +27,15 @@ namespace ExchangeRates
 			HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
 			HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
-			StreamReader Stream = new StreamReader(resp.GetResponseStream());
+			string result = "";
+			using (StreamReader Stream = new StreamReader(resp.GetResponseStream()))
+			{
+				result = Stream.ReadToEnd();
 
-			string results = Stream.ReadToEnd();
-
-			Stream.Close();
-			resp.Close();
-
-			return results;
+				Stream.Close();
+				resp.Close();
+			}
+			return result;
 		}
 
 		private static string CreateURL(string symbol, string market)
