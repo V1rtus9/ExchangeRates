@@ -5,3 +5,5 @@ The application displays a form in which user selects a cryptocurrency (one of B
 currency (one of EUR, USD, GBP, JPY) and a starting and ending day (both between 2016-01-01 and
 2017-12-31).
 When user clicks Display, a table with daily exchange rates for selected time period is displayed.
+
+![exchangerates](https://github.com/V1rtus9/ExchangeRates/blob/master/exchange_rates_screenshot.png)
